@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'package:Suretler/Views/LoginView/login_view.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 
 class SplashPage extends StatefulWidget {
   State<StatefulWidget> createState() => StartState();
@@ -36,7 +38,7 @@ class StartState extends State<SplashPage> with TickerProviderStateMixin {
 
   startTimer() async {
     Timer(const Duration(seconds: 3), () {
-      print('route');
+      Get.offAll(LoginPage());
     });
   }
 
