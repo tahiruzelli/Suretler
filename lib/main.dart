@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-
-import 'Views/InitView/init_view.dart';
+import 'Views/SplashView/splash_view.dart';
 
 void main() {
   runApp(const MyApp());
