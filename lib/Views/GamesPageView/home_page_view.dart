@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class HomePageView extends StatelessWidget {
+class GamesPageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold();

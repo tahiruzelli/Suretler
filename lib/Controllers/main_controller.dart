@@ -1,5 +1,12 @@
+import 'package:Suretler/Controllers/QueAnsController/que_ans_controller.dart';
+import 'package:Suretler/Views/GamesPageView/home_page_view.dart';
+import 'package:Suretler/Views/HomePageView/home_page_view.dart';
+import 'package:Suretler/Views/MusicsPageView/musics_page_view.dart';
+import 'package:Suretler/Views/QueAnsPageView/ques_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../Views/ProfilPageView/profile_page_view.dart';
 
 class MainController extends GetxController {
   RxInt currentPageIndex = 0.obs;
@@ -13,10 +20,10 @@ class MainController extends GetxController {
   }
 
   List<Widget> mainPages = [
-    Container(),
-    Container(),
-    Container(),
-    Container(),
-    Container(),
+    HomePageView(),
+    MusicsPageView(),
+    QuesPageView(),
+    GamesPageView(),
+    ProfilePageView(),
   ];
 }
