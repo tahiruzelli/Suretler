@@ -1,3 +1,4 @@
+import 'package:Suretler/Controllers/GameController/game_controller.dart';
 import 'package:Suretler/Views/GamesPageView/Pages/classic_games.dart';
 import 'package:Suretler/Views/GamesPageView/Pages/improvisational_games.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,7 @@ class GamesPageView extends StatefulWidget {
 
 class _GamesPageView extends State<GamesPageView>
     with SingleTickerProviderStateMixin {
+  GameController gameController = Get.put(GameController());
   late TabController tabController;
   @override
   void initState() {

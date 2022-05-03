@@ -1,6 +1,9 @@
+import 'package:Suretler/Models/improvisational_game.dart';
 import 'package:flutter/material.dart';
 
 class ImprovisationalGameCard extends StatelessWidget {
+  late ImprovisationalGame game;
+  ImprovisationalGameCard(this.game);
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -9,8 +12,8 @@ class ImprovisationalGameCard extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListTile(
-            title: Text("30 Saniye"),
-            subtitle: Text("Seyirciye sorulan bir konu ele alınarak aynı oyun ilk başta 30 saniyede sonra 18, 9, 5, 3 ve 1 saniyede oynanır"),
+            title: Text(game.title ?? ""),
+            subtitle: Text(game.description ?? ""),
           ),
         ),
       ),
