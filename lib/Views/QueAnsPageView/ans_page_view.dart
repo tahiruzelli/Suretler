@@ -1,17 +1,19 @@
 import 'package:Suretler/Controllers/QueAnsController/que_ans_controller.dart';
 import 'package:Suretler/Globals/Widgets/custom_appbar.dart';
 import 'package:Suretler/Globals/Widgets/custom_tf.dart';
+import 'package:Suretler/Globals/Widgets/loading_indicator.dart';
 import 'package:Suretler/Views/QueAnsPageView/Widgets/delete_edit_picker.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../Globals/Constans/colors.dart';
 
 class AnsPageView extends StatelessWidget {
+  late String questionId;
+  AnsPageView(this.questionId);
   QueAnsController queAnsController = Get.put(QueAnsController());
   @override
   Widget build(BuildContext context) {
+    queAnsController.getAnswers(questionId);
     return Scaffold(
       appBar: customAppBar(title: "Cevaplar"),
       floatingActionButton: FloatingActionButton(
@@ -22,23 +24,34 @@ class AnsPageView extends StatelessWidget {
         ),
       ),
       body: Obx(
-        () => ListView.builder(
-          itemCount: queAnsController.answers.length,
-          itemBuilder: (context, index) {
-            return Card(
-              child: ListTile(
-                onLongPress: () {
-                  deleteEditPicker(
-                    context,
-                    () => queAnsController.deleteAnswer(index),
-                    () {},
+        () => queAnsController.answersLoading.value
+            ? Center(
+                child: LoadingIndicator(),
+              )
+            : ListView.builder(
+                itemCount: queAnsController.answers.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 8.0, vertical: 4),
+                    child: Card(
+                      child: ListTile(
+                        onLongPress: () {
+                          deleteEditPicker(
+                            context,
+                            () => queAnsController.deleteAnswer(
+                              queAnsController.answers[index]['id'],
+                              index,
+                            ),
+                            () {},
+                          );
+                        },
+                        title: Text(queAnsController.answers[index]['answer']),
+                      ),
+                    ),
                   );
                 },
-                title: Text(queAnsController.answers[index]),
               ),
-            );
-          },
-        ),
       ),
     );
   }
@@ -72,7 +85,7 @@ class AnsPageView extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  queAnsController.onAddAnswerButtonPressed();
+                  queAnsController.onAddAnswerButtonPressed(questionId);
                   Get.back();
                 },
                 child: const Text(
