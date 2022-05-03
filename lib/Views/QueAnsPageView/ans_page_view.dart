@@ -40,13 +40,14 @@ class AnsPageView extends StatelessWidget {
                           deleteEditPicker(
                             context,
                             () => queAnsController.deleteAnswer(
-                              queAnsController.answers[index]['id'],
+                              queAnsController.answers[index].id ?? "",
                               index,
                             ),
                             () {},
                           );
                         },
-                        title: Text(queAnsController.answers[index]['answer']),
+                        title:
+                            Text(queAnsController.answers[index].answer ?? ""),
                       ),
                     ),
                   );

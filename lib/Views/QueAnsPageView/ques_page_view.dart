@@ -35,21 +35,22 @@ class QuesPageView extends StatelessWidget {
                       child: ListTile(
                         onTap: () {
                           queAnsController.onQueCardPressed(
-                              queAnsController.questions[index]['id']);
+                              queAnsController.questions[index].id ?? "");
                         },
                         onLongPress: () {
                           deleteEditPicker(
                             context,
                             () => queAnsController.deleteQuestion(
-                              queAnsController.questions[index]['id'],
+                              queAnsController.questions[index].id ?? "",
                               index,
                             ),
                             () {},
                           );
                         },
-                        title:
-                            Text(queAnsController.questions[index]['question']),
-                        subtitle: const Text("20 cevap"),
+                        title: Text(
+                            queAnsController.questions[index].question ?? ""),
+                        subtitle: Text(
+                            "${queAnsController.questions[index].answerCount} cevap"),
                         trailing: IconButton(
                           onPressed: () {},
                           icon: const Icon(

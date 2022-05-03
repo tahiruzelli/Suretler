@@ -1,3 +1,5 @@
+import 'package:Suretler/Models/answer.dart';
+import 'package:Suretler/Models/question.dart';
 import 'package:Suretler/Views/QueAnsPageView/ans_page_view.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -7,8 +9,8 @@ class QueAnsController extends GetxController {
   TextEditingController questionTFController = TextEditingController();
   TextEditingController answerTFController = TextEditingController();
 
-  RxList answers = [].obs;
-  RxList questions = [].obs;
+  List<Answer> answers = [];
+  List<Question> questions = [];
   RxBool questionsLoading = false.obs;
   RxBool answersLoading = false.obs;
 
@@ -29,7 +31,7 @@ class QueAnsController extends GetxController {
     answers.removeAt(index);
   }
 
-  Future deleteQuestion(String questionId,int index) async {
+  Future deleteQuestion(String questionId, int index) async {
     FirebaseFirestore.instance.collection("Questions").doc(questionId).delete();
     questions.removeAt(index);
   }
@@ -67,9 +69,9 @@ class QueAnsController extends GetxController {
       questionsLoading.value = true;
       var snap = await FirebaseFirestore.instance.collection('Questions').get();
       for (var doc in snap.docs) {
-        Map tmp = doc.data();
+        Map<String, dynamic> tmp = doc.data();
         tmp['id'] = doc.id;
-        questions.add(tmp);
+        questions.add(Question.fromJson(tmp));
       }
       questionsLoading.value = false;
     } catch (e) {
@@ -86,9 +88,9 @@ class QueAnsController extends GetxController {
           .where('questionId', isEqualTo: questionId)
           .get();
       for (var doc in snap.docs) {
-        Map tmp = doc.data();
+        Map<String, dynamic> tmp = doc.data();
         tmp['id'] = doc.id;
-        answers.add(tmp);
+        answers.add(Answer.fromJson(tmp));
       }
       answersLoading.value = false;
     } catch (e) {
