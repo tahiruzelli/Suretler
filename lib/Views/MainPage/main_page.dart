@@ -17,8 +17,12 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(
       () => Scaffold(
-        appBar:
-            mainController.currentPageIndex.value == 3 ? null : customAppBar(),
+        appBar: mainController.currentPageIndex.value == 3
+            ? null
+            : customAppBar(
+                title: mainController
+                    .appBarTitles[mainController.currentPageIndex.value],
+              ),
         body: mainController.currentPage,
         bottomNavigationBar: BottomNavigationBar(
           onTap: (int index) => mainController.changePage(index),

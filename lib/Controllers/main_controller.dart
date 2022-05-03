@@ -15,7 +15,15 @@ class MainController extends GetxController {
     return mainPages[currentPageIndex.value];
   }
 
-  void changePage(int index){
+  List<String> appBarTitles = [
+    "Ana Sayfa",
+    "Müzikler",
+    "Sorular",
+    "Oyunlar",
+    "Profil",
+  ];
+
+  void changePage(int index) {
     currentPageIndex.value = index;
   }
 
