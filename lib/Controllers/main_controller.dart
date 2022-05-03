@@ -1,5 +1,5 @@
 import 'package:Suretler/Controllers/QueAnsController/que_ans_controller.dart';
-import 'package:Suretler/Views/GamesPageView/home_page_view.dart';
+import 'package:Suretler/Views/GamesPageView/games_page_view.dart';
 import 'package:Suretler/Views/HomePageView/home_page_view.dart';
 import 'package:Suretler/Views/MusicsPageView/musics_page_view.dart';
 import 'package:Suretler/Views/QueAnsPageView/ques_page_view.dart';
