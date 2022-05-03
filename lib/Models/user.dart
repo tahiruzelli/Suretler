@@ -10,7 +10,7 @@ class User {
   User.fromJson(Map<String, dynamic> json) {
     email = json['email'];
     fullName = json['fullName'];
-    level = json['level'];
+    level = int.parse(json['level']);
     password = json['password'];
     photoUrl = json['photoUrl'];
   }

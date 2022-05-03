@@ -1,7 +1,12 @@
 import 'dart:async';
+import 'package:Suretler/Globals/Constans/keys.dart';
+import 'package:Suretler/Globals/global_vars.dart';
+import 'package:Suretler/Models/user.dart';
 import 'package:Suretler/Views/LoginView/login_view.dart';
+import 'package:Suretler/Views/MainPage/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
+import 'package:get_storage/get_storage.dart';
 
 class SplashPage extends StatefulWidget {
   @override
@@ -39,7 +44,13 @@ class StartState extends State<SplashPage> with TickerProviderStateMixin {
 
   startTimer() async {
     Timer(const Duration(seconds: 3), () {
-      Get.offAll(LoginPage());
+      var user = GetStorage().read(userDataKey);
+      if (user == null) {
+        Get.offAll(LoginPage());
+      } else {
+        currentUser = User.fromJson(user);
+        Get.offAll(MainPage());
+      }
     });
   }
 
