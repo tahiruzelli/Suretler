@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ProfilePageView extends StatelessWidget {
-  ProfileController profileController = Get.put(ProfileController());
+  final ProfileController profileController = Get.put(ProfileController());
+
+  ProfilePageView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +29,7 @@ class ProfilePageView extends StatelessWidget {
           DetailLine("İsim:", currentUser!.fullName ?? ""),
           DetailLine("Email: ",currentUser!.email ?? "" ),
           DetailLine("Seviye: ", currentUser!.level.toString()),
-          Spacer(),
+          const Spacer(),
           Center(
             child: ElevatedButton(
               style: ButtonStyle(

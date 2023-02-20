@@ -5,13 +5,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ClassicGames extends StatelessWidget {
-  GameController gameController = Get.find();
+  final GameController gameController = Get.find();
+
+  ClassicGames({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Obx(
         () => gameController.classicGamesLoading.value
-            ? Center(
+            ? const Center(
                 child: LoadingIndicator(),
               )
             : ListView.builder(

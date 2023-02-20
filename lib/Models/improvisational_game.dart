@@ -10,9 +10,9 @@ class ImprovisationalGame {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['title'] = this.title;
-    data['description'] = this.description;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['title'] = title;
+    data['description'] = description;
     return data;
   }
 }

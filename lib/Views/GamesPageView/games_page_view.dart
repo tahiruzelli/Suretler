@@ -7,6 +7,8 @@ import 'package:get/get.dart';
 import '../../Globals/Constans/colors.dart';
 
 class GamesPageView extends StatefulWidget {
+  const GamesPageView({Key? key}) : super(key: key);
+
   @override
   _GamesPageView createState() => _GamesPageView();
 }
@@ -17,7 +19,6 @@ class _GamesPageView extends State<GamesPageView>
   late TabController tabController;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     tabController = TabController(
       vsync: this,

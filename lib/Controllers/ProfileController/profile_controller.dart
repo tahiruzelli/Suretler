@@ -8,6 +8,6 @@ class ProfileController extends GetxController {
   void exit() {
     currentUser = null;
     GetStorage().remove(userDataKey);
-    Get.offAll(LoginPage());
+    Get.offAll(const LoginPage());
   }
 }

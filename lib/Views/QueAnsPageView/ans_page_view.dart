@@ -8,9 +8,10 @@ import 'package:get/get.dart';
 import '../../Globals/Constans/colors.dart';
 
 class AnsPageView extends StatelessWidget {
-  late String questionId;
-  AnsPageView(this.questionId);
-  QueAnsController queAnsController = Get.put(QueAnsController());
+  AnsPageView(this.questionId, {Key? key}) : super(key: key);
+  final String questionId;
+
+  final QueAnsController queAnsController = Get.put(QueAnsController());
   @override
   Widget build(BuildContext context) {
     queAnsController.getAnswers(questionId);
@@ -25,7 +26,7 @@ class AnsPageView extends StatelessWidget {
       ),
       body: Obx(
         () => queAnsController.answersLoading.value
-            ? Center(
+            ? const Center(
                 child: LoadingIndicator(),
               )
             : ListView.builder(

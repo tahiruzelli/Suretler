@@ -36,10 +36,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: ^4.6.1
   get_storage: ^2.0.3
-  firebase_core: ^1.15.0
-  cloud_firestore: ^3.1.13
+  firebase_core: ^2.6.1
+  cloud_firestore: ^4.4.2
   crypto: ^3.0.2
-  syncfusion_flutter_pdfviewer: ^20.1.52-beta
+  # syncfusion_flutter_pdfviewer: ^20.4.50
 
 dev_dependencies:
   flutter_test:

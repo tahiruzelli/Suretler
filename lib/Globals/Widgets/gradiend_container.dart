@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class GradiendContainer extends StatelessWidget {
+  const GradiendContainer({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(

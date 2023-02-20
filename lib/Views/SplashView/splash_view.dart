@@ -9,6 +9,8 @@ import 'package:get/route_manager.dart';
 import 'package:get_storage/get_storage.dart';
 
 class SplashPage extends StatefulWidget {
+  const SplashPage({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => StartState();
 }
@@ -46,7 +48,7 @@ class StartState extends State<SplashPage> with TickerProviderStateMixin {
     Timer(const Duration(seconds: 3), () {
       var user = GetStorage().read(userDataKey);
       if (user == null) {
-        Get.offAll(LoginPage());
+        Get.offAll(const LoginPage());
       } else {
         currentUser = User.fromJson(user);
         Get.offAll(MainPage());

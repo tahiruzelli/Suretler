@@ -36,7 +36,6 @@ class GameController extends GetxController {
 
   @override
   void onInit() {
-    // TODO: implement onInit
     super.onInit();
     getImprovisationalGames();
     getClassicGames();

@@ -1,3 +1,4 @@
+import 'package:Suretler/Globals/Utils/log_print.dart';
 import 'package:Suretler/Models/answer.dart';
 import 'package:Suretler/Models/question.dart';
 import 'package:Suretler/Views/QueAnsPageView/ans_page_view.dart';
@@ -75,7 +76,7 @@ class QueAnsController extends GetxController {
       }
       questionsLoading.value = false;
     } catch (e) {
-      print(e);
+      logPrint(e.toString());
     }
   }
 
@@ -94,7 +95,7 @@ class QueAnsController extends GetxController {
       }
       answersLoading.value = false;
     } catch (e) {
-      print(e);
+      logPrint(e.toString());
     }
   }
 }

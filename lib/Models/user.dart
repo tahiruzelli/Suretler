@@ -1,3 +1,5 @@
+import 'package:Suretler/Globals/Utils/log_print.dart';
+
 class User {
   String? email;
   String? fullName;
@@ -10,13 +12,24 @@ class User {
   User.fromJson(Map<String, dynamic> json) {
     email = json['email'];
     fullName = json['fullName'];
-    level = int.parse(json['level']);
+    if (json['level'] == null) {
+      level = null;
+    } else if (json['level'] is String) {
+      try {
+        level = int.parse(json['level']);
+      } catch (e) {
+        logPrint(e.toString());
+        level = null;
+      }
+    } else {
+      level = json['level'];
+    }
     password = json['password'];
     photoUrl = json['photoUrl'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['email'] = email;
     data['fullName'] = fullName;
     data['level'] = level;

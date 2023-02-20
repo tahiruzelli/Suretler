@@ -14,7 +14,7 @@ class ClassicGame {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['title'] = title;
     data['description'] = description;
     data['author'] = author;

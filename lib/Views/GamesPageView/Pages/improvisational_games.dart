@@ -6,13 +6,15 @@ import '../../../Controllers/GameController/game_controller.dart';
 import '../../../Globals/Widgets/loading_indicator.dart';
 
 class ImprovisationalGames extends StatelessWidget {
-  GameController gameController = Get.find();
+  final GameController gameController = Get.find();
+
+  ImprovisationalGames({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Obx(
         () => gameController.classicGamesLoading.value
-            ? Center(
+            ? const Center(
                 child: LoadingIndicator(),
               )
             : ListView.builder(

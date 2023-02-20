@@ -7,12 +7,13 @@ import 'package:get/get.dart';
 import '../../Globals/Constans/colors.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
+
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginPage> {
-  
   LoginController loginController = Get.put(LoginController());
   final kHintTextStyle = const TextStyle(
     color: colorPageColor,
@@ -113,14 +114,11 @@ class _LoginScreenState extends State<LoginPage> {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 25.0),
       width: double.infinity,
-      child: RaisedButton(
-        elevation: 5.0,
+      child: ElevatedButton(
         onPressed: () => loginController.onLoginButtonPressed(),
-        padding: const EdgeInsets.all(15.0),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30.0),
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(Colors.white),
         ),
-        color: Colors.white,
         child: const Text(
           'Giriş',
           style: TextStyle(
@@ -172,7 +170,7 @@ class _LoginScreenState extends State<LoginPage> {
           onTap: () => FocusScope.of(context).unfocus(),
           child: Stack(
             children: <Widget>[
-              GradiendContainer(),
+              const GradiendContainer(),
               SizedBox(
                 height: double.infinity,
                 child: SingleChildScrollView(

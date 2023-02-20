@@ -6,7 +6,9 @@ import '../../Globals/Constans/colors.dart';
 import '../../Globals/Widgets/custom_appbar.dart';
 
 class MainPage extends StatelessWidget {
-  MainController mainController = Get.put(MainController());
+  final MainController mainController = Get.put(MainController());
+
+  MainPage({Key? key}) : super(key: key);
   Color getIconColor(int index) {
     return mainController.currentPageIndex.value != index
         ? mainColor

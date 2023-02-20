@@ -3,9 +3,9 @@ import 'package:get/get.dart';
 import '../Constans/colors.dart';
 
 class DetailLine extends StatelessWidget {
-  late String title;
-  late String content;
-  DetailLine(this.title,this.content);
+  final String title;
+  final String content;
+  const DetailLine(this.title,this.content, {Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(

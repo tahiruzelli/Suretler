@@ -2,8 +2,8 @@ import 'package:Suretler/Models/improvisational_game.dart';
 import 'package:flutter/material.dart';
 
 class ImprovisationalGameCard extends StatelessWidget {
-  late ImprovisationalGame game;
-  ImprovisationalGameCard(this.game);
+  final ImprovisationalGame game;
+  const ImprovisationalGameCard(this.game, {Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(

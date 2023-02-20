@@ -8,7 +8,9 @@ import 'package:get/get.dart';
 import '../../Globals/Widgets/custom_tf.dart';
 
 class QuesPageView extends StatelessWidget {
-  QueAnsController queAnsController = Get.put(QueAnsController());
+  final QueAnsController queAnsController = Get.put(QueAnsController());
+
+  QuesPageView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     queAnsController.getQuestions();
@@ -22,7 +24,7 @@ class QuesPageView extends StatelessWidget {
       ),
       body: Obx(
         () => queAnsController.questionsLoading.value
-            ? Center(
+            ? const Center(
                 child: LoadingIndicator(),
               )
             : ListView.builder(

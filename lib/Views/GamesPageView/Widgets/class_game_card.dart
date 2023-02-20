@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ClassicGameCard extends StatelessWidget {
-  late ClassicGame game;
-  ClassicGameCard(this.game);
+  final ClassicGame game;
+  const ClassicGameCard(this.game, {Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(
